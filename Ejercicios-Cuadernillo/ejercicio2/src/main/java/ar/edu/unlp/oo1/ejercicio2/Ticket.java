@@ -14,7 +14,7 @@ public class Ticket {
 		this.fecha = fecha;
 		this.cantidadDeProductos = cantidadDeProductos;
 		this.pesoTotal = pesoTotal;
-		this.precioTotal = precioTotal;
+		this.precioTotal = precioTotal + impuesto();
 	}
 
 
@@ -68,8 +68,6 @@ public class Ticket {
 
 
 	public double impuesto() {
-		double impuestoAgregado = 0.21*getPrecioTotal();
-		setPrecioTotal(precioTotal+impuestoAgregado);
-		return impuestoAgregado;
+		return 0.21*getPrecioTotal();
 	}
 }

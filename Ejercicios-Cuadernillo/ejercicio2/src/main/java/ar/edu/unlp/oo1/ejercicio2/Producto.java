@@ -12,7 +12,7 @@ public class Producto {
 
 	
 
-	public Producto(String descripcion, double precioPorKilo, double peso) {
+	public Producto(String descripcion, double peso,double precioPorKilo) {
 		this.peso = peso;
 		this.precioPorKilo = precioPorKilo;
 		this.descripcion = descripcion;

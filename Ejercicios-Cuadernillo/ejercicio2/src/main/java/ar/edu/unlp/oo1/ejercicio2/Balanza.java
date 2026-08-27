@@ -10,8 +10,11 @@ public class Balanza {
 		precioTotal = 0;
 		pesoTotal = 0;
 	}
+	
 	public void agregarProducto (Producto producto) {
-		
+		cantidadDeProductos++;
+		precioTotal += producto.getPrecio();
+		pesoTotal += producto.getPeso();
 	}
 	
 	
