@@ -13,7 +13,7 @@ public class Ticket {
 		this.fecha = fecha;
 		if (productos != null) {
 			this.productos = new ArrayList<>();
-			this.productos.addAll(productos);
+			this.productos.addAll(productos); //Esto esta mal porque siguen siendo los mismos objetos
 		}
 			
 	}
