@@ -35,5 +35,9 @@ public class DateLapse implements DateInterface{
 			return !other.isBefore(to) && !other.isAfter(from);
 		return !other.isBefore(from) && !other.isAfter(to);
 	}
+
+	@Override
+	public boolean overlaps(DateInterface rangoARevisar) {
+		return !this.getFrom().isAfter(rangoARevisar.getTo()) && !this.getTo().isBefore(rangoARevisar.getFrom());	}
 	
 }

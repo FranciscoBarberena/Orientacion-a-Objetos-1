@@ -8,5 +8,6 @@ public interface DateInterface {
 	public LocalDate getTo();
 	public LocalDate getFrom();
 	public boolean includesDate(LocalDate other);
+	public boolean overlaps(DateInterface rangoARevisar);
 	
 }
