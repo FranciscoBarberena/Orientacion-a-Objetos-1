@@ -4,22 +4,34 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.ejercicio23.PoliticaDeCancelacion;
+
 public class Inmueble {
 
 	private String direccion;
 	private String nombre;
 	private double precioPorNoche;
 	private List<Reserva> reservas;
+	private PoliticaDeCancelacion politica;
 	
 	
 	
 	
-	public Inmueble(String direccion, String nombre, double precioPorNoche) {
+	public Inmueble(String direccion, String nombre, double precioPorNoche,PoliticaDeCancelacion politica) {
 		this.direccion = direccion;
 		this.nombre = nombre;
 		this.precioPorNoche = precioPorNoche;
 		this.reservas = new ArrayList<>();
+		this.politica = politica;
 	}
+	
+	
+
+	public void setPolitica(PoliticaDeCancelacion politica) {
+		this.politica = politica;
+	}
+
+
 
 	public double getPrecioPorNoche() {
 		return precioPorNoche;
@@ -47,12 +59,13 @@ public class Inmueble {
 		return false;
 	}
 	
-	public boolean cancelarReserva (Reserva reserva, Usuario inquilino) {
-		if (reserva.estaEnRango(LocalDate.MIN, LocalDate.now()))
-			return false;
+	public double cancelarReserva (Reserva reserva, Usuario inquilino) {
+		if (reserva.isCurrent())
+			return -1; //Debería ser una excepción o algo por el estilo
 		reservas.remove(reserva);
 		inquilino.eliminarReserva(reserva);
-		return true;
+		return this.politica.calcularReembolso(reserva);
+		
 	}
 
 }

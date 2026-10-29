@@ -37,4 +37,8 @@ public class DateLapse2 implements DateInterface{
 	@Override
 	public boolean overlaps(DateInterface rangoARevisar) {
 		return !this.getFrom().isAfter(rangoARevisar.getTo()) && !this.getTo().isBefore(rangoARevisar.getFrom());	}
+	
+	public boolean isCurrentlyHappening() {
+		return !this.getTo().isBefore(LocalDate.now());
+	}
 }

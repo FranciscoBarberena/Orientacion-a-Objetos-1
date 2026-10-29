@@ -21,12 +21,21 @@ public class Reserva {
 		DateInterface rangoARevisar = new DateLapse(inicio, fin);
 		return this.rango.overlaps(rangoARevisar);
 	}
-
-
-
+	
 
 	public double calcularPrecio() {
 		return rango.sizeInDays()*this.precioPorNocheHistorico;
+	}
+
+
+	public boolean isCurrent() {
+		return rango.isCurrentlyHappening();
+	}
+
+
+	public LocalDate getFechaInicio() {
+		// TODO Auto-generated method stub
+		return rango.getFrom();
 	}
 
 }

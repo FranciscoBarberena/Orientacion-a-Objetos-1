@@ -9,5 +9,6 @@ public interface DateInterface {
 	public LocalDate getFrom();
 	public boolean includesDate(LocalDate other);
 	public boolean overlaps(DateInterface rangoARevisar);
+	public boolean isCurrentlyHappening();
 	
 }
