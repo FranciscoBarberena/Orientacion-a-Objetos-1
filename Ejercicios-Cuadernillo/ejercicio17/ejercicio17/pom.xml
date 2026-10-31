@@ -46,6 +46,11 @@
       <version>5.7.2</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+    	<groupId>unlp.oo1</groupId>
+    	<artifactId>ej-bag</artifactId>
+    	<version>1.0.0</version>
+    </dependency>
   </dependencies>
   
   <scm>

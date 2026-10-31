@@ -1,5 +1,6 @@
 package ar.ejercicio17;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class Email {
@@ -7,7 +8,7 @@ public class Email {
 	private List<Archivo> adjuntos;
 	private String titulo;
 	private String cuerpo;
-	
+	private LocalDate fechaRecibido; // Para ejercicio 26
 	
 	
 	
@@ -17,6 +18,17 @@ public class Email {
 		this.cuerpo = cuerpo;
 	}
 	
+	
+	
+	public Email(List<Archivo> adjuntos, String titulo, String cuerpo, LocalDate fechaRecibido) {
+		this.adjuntos = adjuntos;
+		this.titulo = titulo;
+		this.cuerpo = cuerpo;
+		this.fechaRecibido = fechaRecibido;
+	}
+
+
+
 	public boolean agregarAdjunto(Archivo adjunto) {
 		return adjuntos.add(adjunto);
 	}
@@ -36,4 +48,13 @@ public class Email {
 	public int tamanio() {
 		return titulo.length() + cuerpo.length() + adjuntos.stream().mapToInt(adjunto -> adjunto.tamanio()).sum();
 	}
+
+	
+	
+	// Ejercicio 26
+	
+	public LocalDate getFechaRecibido() {
+		return fechaRecibido;
+	}
+
 }
